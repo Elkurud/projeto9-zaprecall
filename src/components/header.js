@@ -4,10 +4,12 @@ import logo from "../assets/img/logo.png"
 export default function Header() {
 
     return(
+    
         <Head>
-        <img src={logo} />
-        <p>ZapRecall</p>
+            <img src={logo} />
+            <p>ZapRecall</p>
         </Head>
+
     )
 }
 
@@ -16,14 +18,16 @@ const Head = styled.div`
 
     @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Righteous&display=swap');
 
-    height: 60px;
+    height: 108px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
-    top: 0;
+    top: 0px;
     left: 0;
+    background-color: #fb6b6b;
+    z-index: 2;
     
     & p {
         font-family: 'Righteous', cursive;

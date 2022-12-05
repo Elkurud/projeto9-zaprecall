@@ -29,6 +29,9 @@ const GlobalStyle = createGlobalStyle`
     body {
         line-height: 1;
         background-color: #fb6b6b;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     ol, ul {
         list-style: none;
