@@ -5,14 +5,17 @@ import Deck from "./components/Deck";
 import Footer from "./components/Footer";
 
 function App() {
+
+  const [conc, setConc] = React.useState(0);
+
   return (
     <>
     <GlobalStyle />
 
     <Header />
 
-    <Deck/>
-    <Footer/>
+    <Deck  conc = {conc} setConc = {setConc}/>
+    <Footer conc = {conc}/>
     </>
   );
 }

@@ -6,7 +6,7 @@ import Result1 from "../assets/img/icone_erro.png"
 import Result2 from "../assets/img/icone_quase.png"
 import Result3 from "../assets/img/icone_certo.png"
 
-export default function Corpo() {
+export default function Deck({conc, setConc}) {
 
     const cards = [
         { number: "1" ,question: "O que é JSX?", answer: "Uma extensão da linguagem JavaScript" },
@@ -22,19 +22,18 @@ export default function Corpo() {
     return(
         <>
         <Spacer/>
-         {cards.map((f) => <Cards data={f}/>)}
+         {cards.map((f) => <Cards data={f} conc = {conc} setConc = {setConc}/>)}
          <Spacer/>
         </>
     )
 
-}
+}   
 
-    let contador2 = 0
+let contador = 0
 
 function Cards(props) {
 
 
-    let contador = 0
 
     const [card, setCard] = React.useState(<Card>
         <p>pergunta {props.data.number}</p>
@@ -61,9 +60,9 @@ function Cards(props) {
             <Card3>
                 <p>{props.data.answer}</p>
                 <Botoes>
-                    <Botao1 onClick={() => carta4(props.data, 1)}>Não lembrei</Botao1>
-                    <Botao2 onClick={() => carta4(props.data, 2)}>Quase não lembrei</Botao2>
-                    <Botao3 onClick={() => carta4(props.data, 3)}>Zap!</Botao3>
+                    <Botao1 onClick={() => carta4(1)}>Não lembrei</Botao1>
+                    <Botao2 onClick={() => carta4(2)}>Quase não lembrei</Botao2>
+                    <Botao3 onClick={() => carta4(3)}>Zap!</Botao3>
                 </Botoes>
             </Card3>;
 
@@ -71,9 +70,11 @@ function Cards(props) {
 
         }
 
-        const carta4 = (a , number) => {
+        const carta4 = (number) => {
 
             let resposta = ""
+
+           
 
             if (number == 1){
             
@@ -82,6 +83,8 @@ function Cards(props) {
                     <p>pergunta {props.data.number}</p>
                     <img src={Result1}></img>
                 </Card41>;
+                props.setConc(contador+1)
+                numeroDeCards()
 
             }else if(number == 2){
             
@@ -90,6 +93,8 @@ function Cards(props) {
                     <p>pergunta {props.data.number}</p>
                     <img src={Result2}></img>
                 </Card42>;
+                props.setConc(contador+1)
+                numeroDeCards()
 
             }else{
             
@@ -98,15 +103,16 @@ function Cards(props) {
                     <p>pergunta {props.data.number}</p>
                     <img src={Result3}></img>
                 </Card43>;
-            
+                props.setConc(contador+1)
+                numeroDeCards()
             }
 
             setCard(resposta);
         
 
         }
-    console.log(contador)
-        numeroDeCards();
+    
+        
 
     return(
         <>
@@ -118,13 +124,10 @@ function Cards(props) {
 
 function numeroDeCards() {
     
-    contador2 = contador2 + 1
+    contador++;
 
-    console.log(contador2)
-    return (contador2)
+    return(contador);
 }
-
-export {contador2}
 
 const Card = styled.div`
 

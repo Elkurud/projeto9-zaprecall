@@ -1,19 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { contador2 } from "./Deck";
 
-export default function Footer() {
+export default function Footer(props) {
 
-function contador () {
-    console.log({contador2});
-}
-
-return(
+    return(
 
     <Foooter>
         <Spacer/>
-        asdasdasdasdasdasdasdasdasdasd
-        
+        {props.conc}/8
     </Foooter>
 
 )
