@@ -242,6 +242,9 @@ const Botao1 = styled.button`
     border-radius: 5px;
     border: 0px;
     background-color: #ff3030;
+    &:hover{
+        cursor: pointer;
+    }
 
 `
 const Botao2 = styled.button`
@@ -256,6 +259,9 @@ const Botao2 = styled.button`
     border-radius: 5px;
     border: 0px;
     background-color: #FF922E;
+    &:hover{
+        cursor: pointer;
+    }
 
 `
 const Botao3 = styled.button`
@@ -270,6 +276,9 @@ const Botao3 = styled.button`
     border-radius: 5px;
     border: 0px;
     background-color: #2FBE34;
+    &:hover{
+        cursor: pointer;
+    }
 
 `
 
