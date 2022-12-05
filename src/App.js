@@ -1,7 +1,8 @@
 import React from "react";
 import GlobalStyle from "./styles/GlobalStyle";
 import Header from "./components/header";
-import Corpo from "./components/Corpo";
+import Deck from "./components/Deck";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
 
     <Header />
 
-    <Corpo/>
+    <Deck/>
+    <Footer/>
     </>
   );
 }

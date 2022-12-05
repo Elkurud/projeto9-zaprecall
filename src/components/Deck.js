@@ -2,6 +2,9 @@ import styled from "styled-components";
 import React from "react";
 import Seta from "../assets/img/seta_play.png"
 import Seta2 from "../assets/img/seta_virar.png"
+import Result1 from "../assets/img/icone_erro.png"
+import Result2 from "../assets/img/icone_quase.png"
+import Result3 from "../assets/img/icone_certo.png"
 
 export default function Corpo() {
 
@@ -20,17 +23,25 @@ export default function Corpo() {
         <>
         <Spacer/>
          {cards.map((f) => <Cards data={f}/>)}
+         <Spacer/>
         </>
     )
 
 }
 
+    let contador2 = 0
+
 function Cards(props) {
+
+
+    let contador = 0
 
     const [card, setCard] = React.useState(<Card>
         <p>pergunta {props.data.number}</p>
         <img src={Seta} onClick={() => carta2(props.data)}></img>
         </Card>);
+
+      
 
         const carta2 = () => {
 
@@ -50,15 +61,52 @@ function Cards(props) {
             <Card3>
                 <p>{props.data.answer}</p>
                 <Botoes>
-                    <Botao1>Não lembrei</Botao1>
-                    <Botao2>Quase não lembrei</Botao2>
-                    <Botao3>Zap!</Botao3>
+                    <Botao1 onClick={() => carta4(props.data, 1)}>Não lembrei</Botao1>
+                    <Botao2 onClick={() => carta4(props.data, 2)}>Quase não lembrei</Botao2>
+                    <Botao3 onClick={() => carta4(props.data, 3)}>Zap!</Botao3>
                 </Botoes>
             </Card3>;
 
             setCard(resposta);
 
         }
+
+        const carta4 = (a , number) => {
+
+            let resposta = ""
+
+            if (number == 1){
+            
+                resposta =
+                <Card41>
+                    <p>pergunta {props.data.number}</p>
+                    <img src={Result1}></img>
+                </Card41>;
+
+            }else if(number == 2){
+            
+                resposta =
+                <Card42>
+                    <p>pergunta {props.data.number}</p>
+                    <img src={Result2}></img>
+                </Card42>;
+
+            }else{
+            
+                resposta =
+                <Card43>
+                    <p>pergunta {props.data.number}</p>
+                    <img src={Result3}></img>
+                </Card43>;
+            
+            }
+
+            setCard(resposta);
+        
+
+        }
+    console.log(contador)
+        numeroDeCards();
 
     return(
         <>
@@ -67,6 +115,16 @@ function Cards(props) {
     )
 
 }
+
+function numeroDeCards() {
+    
+    contador2 = contador2 + 1
+
+    console.log(contador2)
+    return (contador2)
+}
+
+export {contador2}
 
 const Card = styled.div`
 
@@ -155,6 +213,9 @@ const Card3 = styled.div`
 
 const Botoes = styled.div`
 
+    @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Righteous&display=swap');
+
+    font-family: 'Recursive';
     width: 270px;
     display: flex;
     justify-content: space-between;
@@ -168,6 +229,9 @@ const Botoes = styled.div`
 
 const Botao1 = styled.button`
 
+    @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Righteous&display=swap');
+
+    font-family: 'Recursive';
     height: 37px;
     width: 85px;
     color: #ffffff;
@@ -179,6 +243,9 @@ const Botao1 = styled.button`
 `
 const Botao2 = styled.button`
 
+    @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Righteous&display=swap');
+
+    font-family: 'Recursive';
     height: 37px;
     width: 85px;
     color: #ffffff;
@@ -190,6 +257,9 @@ const Botao2 = styled.button`
 `
 const Botao3 = styled.button`
 
+    @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Righteous&display=swap');
+
+    font-family: 'Recursive';
     height: 37px;
     width: 85px;
     color: #ffffff;
@@ -197,5 +267,83 @@ const Botao3 = styled.button`
     border-radius: 5px;
     border: 0px;
     background-color: #2FBE34;
+
+`
+
+const Card41 = styled.div`
+
+    @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Righteous&display=swap');
+
+    background-color: #ffffff;
+    width: 300px;
+    height: 65px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 16px;
+    font-family: 'Recursive';
+
+    p {
+        color: #ff3030;
+        text-decoration-line: line-through;
+    }
+
+`
+
+const Card42 = styled.div`
+
+    @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Righteous&display=swap');
+
+    background-color: #ffffff;
+    width: 300px;
+    height: 65px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 16px;
+    font-family: 'Recursive';
+    
+    p {
+        color: #FF922E;
+        text-decoration-line: line-through;
+    }
+
+`
+
+const Card43 = styled.div`
+
+    @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&family=Righteous&display=swap');
+
+    background-color: #ffffff;
+    width: 300px;
+    height: 65px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 16px;
+    font-family: 'Recursive';
+    
+    p {
+        color: #2FBE34;
+        text-decoration-line: line-through;
+    }
 
 `
