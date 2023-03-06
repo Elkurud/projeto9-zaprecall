@@ -16,6 +16,7 @@ function App() {
     <Header />
 
     <Deck  conc = {conc} setConc = {setConc}/>
+
     <Footer conc = {conc}/>
     </Container>
   );
@@ -31,5 +32,4 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-
 `

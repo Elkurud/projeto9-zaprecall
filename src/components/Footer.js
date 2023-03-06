@@ -5,7 +5,7 @@ export default function Footer(props) {
 
     return(
 
-    <Foooter>
+    <Foooter data-test="footer">
         <Spacer/>
         {props.conc}/8
     </Foooter>

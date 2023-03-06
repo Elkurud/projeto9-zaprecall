@@ -35,9 +35,9 @@ function Cards(props) {
 
 
 
-    const [card, setCard] = React.useState(<Card>
-        <p>pergunta {props.data.number}</p>
-        <img src={Seta} onClick={() => carta2(props.data)}></img>
+    const [card, setCard] = React.useState(<Card data-test="flashcard">
+        <p data-test="flashcard-text">pergunta {props.data.number}</p>
+        <img src={Seta} onClick={() => carta2(props.data)} data-test="play-btn"></img>
         </Card>);
 
       
@@ -45,9 +45,9 @@ function Cards(props) {
         const carta2 = () => {
 
             const resposta = 
-            <Card2>
-                <p>{props.data.question}</p>
-                <Imagem src={Seta2} onClick={() => carta3(props.data)}></Imagem>
+            <Card2 data-test="flashcard">
+                <p data-test="flashcard-text">{props.data.question}</p>
+                <Imagem src={Seta2} onClick={() => carta3(props.data)} data-test="turn-btn"></Imagem>
             </Card2>;
 
             setCard(resposta);
@@ -57,12 +57,12 @@ function Cards(props) {
         const carta3 = () => {
 
             const resposta = 
-            <Card3>
-                <p>{props.data.answer}</p>
+            <Card3 data-test="flashcard">
+                <p data-test="flashcard-text">{props.data.answer}</p>
                 <Botoes>
-                    <Botao1 onClick={() => carta4(1)}>Não lembrei</Botao1>
-                    <Botao2 onClick={() => carta4(2)}>Quase não lembrei</Botao2>
-                    <Botao3 onClick={() => carta4(3)}>Zap!</Botao3>
+                    <Botao1 onClick={() => carta4(1)} data-test="no-btn">Não lembrei</Botao1>
+                    <Botao2 onClick={() => carta4(2)} data-test="partial-btn">Quase não lembrei</Botao2>
+                    <Botao3 onClick={() => carta4(3)} data-test="zap-btn">Zap!</Botao3>
                 </Botoes>
             </Card3>;
 
@@ -81,7 +81,7 @@ function Cards(props) {
                 resposta =
                 <Card41>
                     <p>pergunta {props.data.number}</p>
-                    <img src={Result1}></img>
+                    <img src={Result1} data-test="no-icon"></img>
                 </Card41>;
                 props.setConc(contador+1)
                 numeroDeCards()
@@ -91,7 +91,7 @@ function Cards(props) {
                 resposta =
                 <Card42>
                     <p>pergunta {props.data.number}</p>
-                    <img src={Result2}></img>
+                    <img src={Result2} data-test="partial-icon"></img>
                 </Card42>;
                 props.setConc(contador+1)
                 numeroDeCards()
@@ -101,7 +101,7 @@ function Cards(props) {
                 resposta =
                 <Card43>
                     <p>pergunta {props.data.number}</p>
-                    <img src={Result3}></img>
+                    <img src={Result3} data-test="zap-icon"></img>
                 </Card43>;
                 props.setConc(contador+1)
                 numeroDeCards()

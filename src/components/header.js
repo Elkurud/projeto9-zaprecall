@@ -6,7 +6,7 @@ export default function Header() {
     return(
     
         <Head>
-            <img src={logo} />
+            <img src={logo} alt='' />
             <p>ZapRecall</p>
         </Head>
 
@@ -29,7 +29,7 @@ const Head = styled.div`
     background-color: #fb6b6b;
     z-index: 2;
     
-    & p {
+    p {
         font-family: 'Righteous', cursive;
         color: #ffffff;
         font-size: 36px;
